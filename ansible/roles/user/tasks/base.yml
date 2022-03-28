@@ -1,0 +1,11 @@
+# Directory ~/Applications used for:
+#  - PortfolioPerformance
+#  - Qt
+#  - VSCode-linux-x64
+#  - FastPhotoTagger
+- name: base > Create ~/Applications directory
+  ansible.builtin.file: path=~/Applications state=directory mode=0700
+
+# ~/.local/share/applications
+- name: base > Create ~/.local/share/applications directory
+  ansible.builtin.file: path=~/.local/share/applications state=directory mode=0700

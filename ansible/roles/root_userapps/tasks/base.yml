@@ -1,0 +1,25 @@
+- name: base > Install my base apps
+  community.general.pacman: name={{ packages | join(',') }}
+  vars:
+    packages:
+      - chromium
+      - firefox
+      - thunderbird,thunderbird-i18n-fr 
+      - gnucash
+      - hunspell,hunspell-fr
+      - inkscape
+      - libreoffice-still,libreoffice-still-fr,ttf-dejavu
+      - keepassxc
+      - mpc,ncmpcpp
+      - pdfarranger
+      - quodlibet
+      - syncthing
+      - vlc
+
+- name: base > Install PortfolioPerformance dependencies
+  community.general.pacman: name=jre11-openjdk
+
+#- name: base > Install anki
+#  aur: name=anki-official-binary-bundle use=makepkg state={{ anki_aur_state }}
+#  become: yes
+#  become_user: aur_builder

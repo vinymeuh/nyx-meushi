@@ -1,0 +1,33 @@
+- name: network > Install network tools & services
+  community.general.pacman: name={{ item }}
+  with_items:
+    - avahi,nss-mdns
+    - systemd-resolvconf
+    - nftables
+
+- name: network > Enable mDNS hostname resolution
+  ansible.builtin.lineinfile:
+    path: /etc/nsswitch.conf
+    regexp: '^hosts: files mymachines(.*)'
+    line: 'hosts: files mdns4_minimal [NOTFOUND=return] mymachines\1'
+    backrefs: yes
+
+- name: network > Default network configuration
+  ansible.builtin.copy: src=default.network dest=/etc/systemd/network/default.network
+
+- name: network > Enable systemd DNS stub file
+  ansible.builtin.file: state=link src=/run/systemd/resolve/stub-resolv.conf path=/etc/resolv.conf force=yes
+
+- name: network > Enable network services
+  ansible.builtin.systemd: name={{ item }} enabled=yes state=started
+  with_items:
+    - avahi-daemon
+    - systemd-networkd
+    - systemd-resolved
+    - systemd-timesyncd
+
+# nftables service stop itfself after loading rules
+- name: network > Enable nftables service
+  ansible.builtin.systemd: name=nftables enabled=yes
+  notify: start-nftables
+  

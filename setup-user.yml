@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  become: no
+
+  tasks:
+    - {import_role: name=user tasks_from=base,          tags: ['base']}
+    - {import_role: name=user tasks_from=desktop_files, tags: ['desktop']}
+    - {import_role: name=user tasks_from=dotfiles,      tags: ['dotfiles']}

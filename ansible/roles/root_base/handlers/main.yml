@@ -1,0 +1,8 @@
+- name: locale-gen
+  command: locale-gen
+
+- name: grub-mkconfig
+  command: grub-mkconfig -o /boot/grub/grub.cfg
+
+- name: start-nftables
+  command: systemctl start nftables

@@ -1,0 +1,13 @@
+- name: devtools > Base tools
+  community.general.pacman: name={{ packages | join(',') }}
+  vars:
+    packages:
+      - cmake
+      - gdb
+      - lcov
+
+- name: devtools > Python
+  community.general.pacman: name={{ packages | join(',') }}
+  vars:
+    packages:
+      - pycharm-community-edition
