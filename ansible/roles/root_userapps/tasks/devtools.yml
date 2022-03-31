@@ -5,6 +5,7 @@
       - cmake
       - gdb
       - lcov
+      - minicom
 
 - name: devtools > Python
   community.general.pacman: name={{ packages | join(',') }}
