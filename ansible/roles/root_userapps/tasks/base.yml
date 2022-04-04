@@ -18,8 +18,3 @@
 
 - name: base > Install PortfolioPerformance dependencies
   community.general.pacman: name=jre11-openjdk
-
-#- name: base > Install anki
-#  aur: name=anki-official-binary-bundle use=makepkg state={{ anki_aur_state }}
-#  become: yes
-#  become_user: aur_builder
