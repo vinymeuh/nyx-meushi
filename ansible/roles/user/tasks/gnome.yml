@@ -1,4 +1,4 @@
-# Retrieve key/value using commands "dconf dump /" and "dconf read /path/to/key"
+# Retrieve key/value using commands "dconf dump /path/to/dir/" and "dconf read /path/to/key"
 - name: gnome > Set locale
   community.general.dconf: key="/system/locale/region" value="'fr_FR.UTF-8'" state=present
 
@@ -25,7 +25,17 @@
     - { key: "/org/gnome/settings-daemon/plugins/media-keys/volume-up", value: "['<Alt>Page_Up']" }
     - { key: "/org/gnome/settings-daemon/plugins/media-keys/volume-down", value: "['<Alt>Page_Down']" }
     - { key: "/org/gnome/settings-daemon/plugins/media-keys/volume-mute", value: "['<Alt>Pause']" }
- 
+
+## Gnome Theme ##
+- name: gnome > Set desktop theme
+  community.general.dconf: key={{ item.key }} value={{ item.value }} state=present
+  with_items:
+    - { key: "/org/gnome/desktop/interface/gtk-theme", value: "'Adwaita-dark'" }
+    - { key: "/org/gnome/desktop/interface/document-font-name", value: "'Cantarell 10'" }
+    - { key: "/org/gnome/desktop/interface/font-name", value: "'Cantarell 10'" }
+    - { key: "/org/gnome/desktop/interface/monospace-font-name", value: "'Source Code Pro 10'" }
+
+## Gnome Apps Folders ## 
 - name: gnome > Define Apps Folders
   community.general.dconf: 
     key: /org/gnome/desktop/app-folders/folder-children
