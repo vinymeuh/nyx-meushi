@@ -1,6 +1,7 @@
 - name: vscode > Retrieves list of currently installed extensions
   ansible.builtin.command: "{{ code_install_dir }}/bin/code --list-extensions"
   register: vscode_installed_extensions
+  changed_when: false
 
 - name: vscode > Install missing extensions
   ansible.builtin.command: "{{ code_install_dir }}/bin/code --install-extension {{ item }}"

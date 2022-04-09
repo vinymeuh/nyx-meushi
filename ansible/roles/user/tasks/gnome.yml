@@ -1,4 +1,9 @@
-# Retrieve key/value using commands "dconf dump /path/to/dir/" and "dconf read /path/to/key"
+# The easiest way to figure out exact syntax/value to provide for a key is by making 
+# the configuration change in application and use
+# - dconf watch /
+# - dconf dump /path/to/dir/"
+# - dconf read /path/to/key
+
 - name: gnome > Set locale
   community.general.dconf: key="/system/locale/region" value="'fr_FR.UTF-8'" state=present
 
@@ -30,6 +35,7 @@
 - name: gnome > Set desktop theme
   community.general.dconf: key={{ item.key }} value={{ item.value }} state=present
   with_items:
+    - { key: "/org/gnome/desktop/interface/color-scheme", value: "'prefer-dark'" }
     - { key: "/org/gnome/desktop/interface/gtk-theme", value: "'Adwaita-dark'" }
     - { key: "/org/gnome/desktop/interface/document-font-name", value: "'Cantarell 10'" }
     - { key: "/org/gnome/desktop/interface/font-name", value: "'Cantarell 10'" }
