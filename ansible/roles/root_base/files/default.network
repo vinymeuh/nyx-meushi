@@ -1,10 +1,13 @@
 [Match]
 Name=!lo
+Name=!docker*
+Name=!veth*
 
 [Network]
 DHCP=yes
 MulticastDNS=no
 LLMNR=no
+IPForward=yes
 
 [DHCPv4]
 UseDomains=yes
