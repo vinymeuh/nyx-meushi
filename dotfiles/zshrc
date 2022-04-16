@@ -35,7 +35,6 @@ alias vi=vim
 
 # application aliases
 alias code='~/Applications/VSCode-linux-x64/bin/code --disable-gpu'
-alias docker='sudo docker'
 alias list-photo-tags='exiftool -G:1 -DateTimeOriginal -Artist -Copyright -xmp:all -iptc:all'
 alias radiogaga='ncmpcpp -h radiogaga.home'
 

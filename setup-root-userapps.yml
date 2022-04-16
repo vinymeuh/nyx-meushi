@@ -7,5 +7,5 @@
   tasks:
     - {import_role: name=root_userapps tasks_from=base, tags: ['base']}
     - {import_role: name=root_userapps tasks_from=devtools, tags: ['devtools']}
-    - {import_role: name=root_userapps tasks_from=docker, tags: ['docker']}
+    - {import_role: name=root_userapps tasks_from=podman, tags: ['podman']}
     - {import_role: name=root_userapps tasks_from=steam, tags: ['steam']}

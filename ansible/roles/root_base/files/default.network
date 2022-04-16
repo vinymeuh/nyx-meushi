@@ -1,7 +1,5 @@
 [Match]
 Name=!lo
-Name=!docker*
-Name=!veth*
 
 [Network]
 DHCP=yes

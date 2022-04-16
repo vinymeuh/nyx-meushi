@@ -1,9 +1,0 @@
-- name: docker > Install Docker
-  community.general.pacman: name=docker
-
-- name: docker > Copy /etc/docker/daemon.json
-  ansible.builtin.copy: src=daemon.json dest=/etc/docker/daemon.json mode=0400
-  notify: docker-restart
-
-- name: docker > Enable docker service
-  ansible.builtin.systemd: name=docker enabled=yes state=started
