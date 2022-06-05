@@ -66,6 +66,18 @@
       state: present
 
 - block:
+  - name: gnome > Set "KiCad" folder name
+    community.general.dconf:
+      key: "/org/gnome/desktop/app-folders/folders/KiCad/name" 
+      value: "'KiCad'"
+      state: present
+  - name: gnome > Set "KiCad" apps 
+    community.general.dconf: 
+      key: "/org/gnome/desktop/app-folders/folders/KiCad/apps" 
+      value: "{{ folder_kicad_apps | string }}"
+      state: present
+
+- block:
   - name: gnome > Set "LibreOffice" folder name
     community.general.dconf:
       key: "/org/gnome/desktop/app-folders/folders/LibreOffice/name" 

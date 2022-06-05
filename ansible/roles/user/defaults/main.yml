@@ -2,6 +2,7 @@ code_install_dir: ~/Applications/VSCode-linux-x64
 
 apps_folders:
   - GnomeUtilities
+  - KiCad
   - LibreOffice
   - Photo
   - Qt
@@ -17,6 +18,14 @@ folder_gnomeutilities_apps:
   - org.gnome.clocks.desktop
   - org.gnome.eog.desktop
   - org.gnome.tweaks.desktop
+
+folder_kicad_apps:
+  - org.kicad.bitmap2component.desktop
+  - org.kicad.eeschema.desktop
+  - org.kicad.gerbview.desktop
+  - org.kicad.kicad.desktop
+  - org.kicad.pcbcalculator.desktop
+  - org.kicad.pcbnew.desktop
 
 folder_libreoffice_apps:
   - libreoffice-base.desktop
