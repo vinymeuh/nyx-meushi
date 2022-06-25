@@ -7,15 +7,17 @@
       - lcov
       - minicom
 
-- name: devtools > Python
-  community.general.pacman: name={{ packages | join(',') }}
-  vars:
-    packages:
-      - pycharm-community-edition
+- name: devtools > PyCharm
+  community.general.pacman: name=pycharm-community-edition
 
 - name: devtools > KiCad
-  community.general.pacman: name={{ packages | join(',') }}
-  vars:
-    packages:
-      - kicad
-      - kicad-library
+  community.general.pacman: name=kicad,kicad-library
+
+- name: devtools > Install Saleae Logic 2 dependencies
+  community.general.pacman: name=libxcrypt-compat
+
+- name: devtools > Install custom udev rules
+  ansible.builtin.copy: src={{ item }} dest=/etc/udev/rules.d/{{ item }} mode=0644
+  with_items:
+    - raspberry.rules
+    - saleae.rules
