@@ -7,9 +7,6 @@
       - lcov
       - minicom
 
-- name: devtools > PyCharm
-  community.general.pacman: name=pycharm-community-edition
-
 - name: devtools > KiCad
   community.general.pacman: name=kicad,kicad-library
 

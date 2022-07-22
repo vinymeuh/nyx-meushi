@@ -17,4 +17,4 @@
       - vlc
 
 - name: base > Install PortfolioPerformance dependencies
-  community.general.pacman: name=jre11-openjdk
+  community.general.pacman: name=jre-openjdk
